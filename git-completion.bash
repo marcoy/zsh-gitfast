@@ -1667,10 +1667,7 @@ _git_push ()
 _git_rebase ()
 {
 	local dir="$(__gitdir)"
-	if [ -f "$dir"/rebase-merge/interactive ]; then
-		__gitcomp "--continue --skip --abort --edit-todo"
-		return
-	elif [ -d "$dir"/rebase-apply ] || [ -d "$dir"/rebase-merge ]; then
+	if [ -d "$dir"/rebase-apply ] || [ -d "$dir"/rebase-merge ]; then
 		__gitcomp "--continue --skip --abort"
 		return
 	fi
